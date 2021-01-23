@@ -11,8 +11,13 @@ services:
       - 9300:9300
     environment:
       - "discovery.type=single-node"
+      - "http.cors.enabled=true"
+      - "http.cors.allow-origin=http://localhost:9201"
     networks:
       - elastic
+    deploy:
+      restart_policy:
+        condition: on-failure
 
 volumes:
   data01:
