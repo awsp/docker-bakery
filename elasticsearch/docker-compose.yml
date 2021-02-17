@@ -3,7 +3,7 @@ version: "3.8"
 services:
   elasticSearch:
     container_name: "es-node-01"
-    image: "docker.elastic.co/elasticsearch/elasticsearch:7.10.0"
+    image: "docker.elastic.co/elasticsearch/elasticsearch:7.11.0"
     volumes:
       - data01:/usr/share/elasticsearch/data
     ports:
@@ -18,7 +18,14 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-
+  
+  kibana:
+    container_name: "kibana"
+    image: "docker.elastic.co/kibana/kibana:7.11.0"
+    ports:
+      - "5601:5601"
+    networks:
+      - elastic
 volumes:
   data01:
     driver: local
