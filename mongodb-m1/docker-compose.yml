@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  mongodb:
+    container_name: "MongoDB"
+    image: "arm64v8/mongo"
+    ports: 
+      - "18081:8081"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    volumes:
+      - "./data:/etc/mongo"
+    deploy: 
+      restart_policy:
+        condition: on-failure
