@@ -7,8 +7,8 @@ services:
     ports: 
       - "9000:9000"
     environment:
-      - MINIO_SECRET_KEY=minioadmin1
-      - MINIO_ACCESS_KEY=minioadmin1
+      - MINIO_ROOT_USER=minioadmin1
+      - MINIO_ROOT_PASSWORD=minioadmin1
     command: ["minio", "server", "/data"]
     volumes: 
       - "./data:/data"
