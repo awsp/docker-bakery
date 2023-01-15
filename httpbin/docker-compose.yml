@@ -5,4 +5,4 @@ services:
     container_name: "HTTPBin"
     image: "kennethreitz/httpbin"
     ports: 
-      - "18080:80"
+      - "10080:80"
