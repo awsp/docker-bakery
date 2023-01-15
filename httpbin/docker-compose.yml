@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  httpbin:
+    container_name: "HTTPBin"
+    image: "kennethreitz/httpbin"
+    ports: 
+      - "18080:80"
