@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   postgres:
+    container_name: postgres
     image: postgres
     ports:
       - "5432:5432"
@@ -12,3 +13,17 @@ services:
     volumes:
       - ./data/postgresql:/var/lib/postgresql
       - ./pg-initdb.d:/docker-entrypoint-initdb.d
+  pgadmin:
+    container_name: pgadmin
+    restart: always
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/data/pgadmin
+
+volumes:
+  pgadmin_data:
