@@ -7,6 +7,19 @@ If previously used < 7.1.x, might have to delete the existing volumes from Docke
 bin/elasticsearch-create-enrollment-token --scope kibana
 ```
 
+### Connecting to Elastic
+Copy cert to the current location
+```
+docker cp es-node-01:/usr/share/elasticsearch/config/certs/http_ca.crt .
+```
+
+```
+curl --cacert http_ca.crt -u elastic https://localhost:9200
+```
+
+Password is defined in YML file
+
+
 ### Connect to Kibana
 Will have to go into the console and look for verification code
 

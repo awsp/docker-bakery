@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  web:
+    container_name: "local-php8"
+    image: "php:8.2-apache"
+    ports: 
+      - "8080:80"
+    volumes:
+      - ./src/:/var/www/html/
+    # Add db service from other folder's docker compose file. 
